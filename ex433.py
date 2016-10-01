@@ -95,7 +95,7 @@ class LaserWeaponArmory(Scene):
         guess = raw_input("[keypad]> ")
         guesses = 0
         
-        while guess != code and guesses < 10:
+        while guess != code and guesses < 10:   #should be 9
             print "BZZZZEDDD!"
             guesses += 1
             guess = raw_input("[keypad]> ")
@@ -177,8 +177,6 @@ class EscapePod(Scene):
             print "back and see your ship imploded then explode like a"
             print "bright star, taking out the Gothon ship at the same"
             print "time. You won!"
-            
-            
             return 'finished'
       
       
@@ -202,6 +200,6 @@ class Map(object):
         return self.next_scene(self.start_scene)
         
 
-a_map = Map('centeral_corridor')
+a_map = Map('central_corridor')
 a_game = Engine(a_map)
 a_game.play()  
