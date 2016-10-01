@@ -6,7 +6,7 @@ class Scene(object):
     
     def enter(self):
         print "This scene is not yet configured. Subclass it and implement enter()"
-            exit(1)
+        exit(1)
    
 class Engine(object):
     
@@ -183,14 +183,26 @@ class EscapePod(Scene):
       
       
 class Map(object):
+    
+    scenes = [
+        'central_corridor': CentralCorridor(),
+        'laser_weapon_armory': LaserWeaponArmory(),
+        'the_bridge': TheBridge(),
+        'escape_pod': EscapePod(),
+        'death': Death()
+        ]
+    
     def __init__(self, start_scene):
-        pass
+        self.start_scene = start_scene
         
     def next_scene(self, scene_name):
-        pass
+        return Map.scenes.get(scene_name)
         
     def opening_scene(self):
-        pass
+        return self.next_scene(self.start_scene)
+        
+        
+        
         
 a_map = Map('centeral_corridor')
 a_game = Engine(a_map)
