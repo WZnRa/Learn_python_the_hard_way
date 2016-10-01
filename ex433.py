@@ -47,7 +47,7 @@ class CentralCorridor(Scene):
         print "flowing around his hate filled body. He's blocking the door to the"
         print "Armory and about to pull a weapon to blast you."
         
-        action = raw.input("> ")
+        action = raw_input("> ")
         
         if action == "Shoot!":
             print "Quick on the draw you yank out your blaster and fire it at the Gothon."
@@ -145,7 +145,7 @@ class TheBridge(Scene):
             print "get off this tin can."
             return 'escape_pod'
         else:
-            PRINT "DOES NOT COMPUTE!"
+            print "DOES NOT COMPUTE!"
             return "the_bridge"
             
    
@@ -184,13 +184,13 @@ class EscapePod(Scene):
       
 class Map(object):
     
-    scenes = [
+    scenes = {
         'central_corridor': CentralCorridor(),
         'laser_weapon_armory': LaserWeaponArmory(),
         'the_bridge': TheBridge(),
         'escape_pod': EscapePod(),
         'death': Death()
-        ]
+        }
     
     def __init__(self, start_scene):
         self.start_scene = start_scene
@@ -201,9 +201,7 @@ class Map(object):
     def opening_scene(self):
         return self.next_scene(self.start_scene)
         
-        
-        
-        
+
 a_map = Map('centeral_corridor')
 a_game = Engine(a_map)
 a_game.play()  
